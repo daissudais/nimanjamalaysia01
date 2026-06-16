@@ -1,0 +1,241 @@
+/* --- Global Container Details Layout --- */
+.details-layout { 
+    max-width: 1100px; 
+    margin: 40px auto; 
+    padding: 20px; 
+}
+
+.main-content { 
+    display: flex; 
+    gap: 50px; 
+    margin-bottom: 40px; }
+
+/* --- Expanded Full-Width Search Layout Structure --- */
+.details-page-wide-search {
+    position: relative;
+    margin-bottom: 25px;
+    width: 100%;
+    max-width: 100%; /* Removes previous restraints to perfectly match your info cards */
+}
+
+/* --- Search Form and Input Elastic Flex Fix --- */
+#home-search-form {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    margin: 0;
+}
+
+#home-search-input {
+    flex: 1; /* Forces input layout field to claim all available empty horizontal viewport space */
+    min-width: 0; /* Bypasses browser intrinsic input size blowouts on small devices */
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#home-search-input:focus {
+    border-color: var(--orange);
+}
+
+/* --- Back to Catalog Button Shape --- */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--peach-light);
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 25px;
+    border: 1px solid rgba(234, 101, 38, 0.15);
+}
+
+.back-link:hover {
+    background-color: var(--orange);
+    color: #ffffff;
+    transform: translateX(-3px);
+    box-shadow: 0 4px 12px rgba(234, 101, 38, 0.15);
+}
+
+/* --- Image Gallery Element Box styles --- */
+.image-gallery { flex: 1; position: relative; }
+.main-img img { width: 100%; border-radius: 20px; box-shadow: var(--shadow-soft); height: 450px; object-fit: contain; background: #fff; border: 1px solid #eee; }
+.thumb-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 15px; }
+.thumb-row img { width: 100%; height: 80px; object-fit: contain; border-radius: 12px; cursor: pointer; border: 2px solid #eee; background: #fff; }
+.thumb-row img:hover { border-color: var(--orange); }
+
+/* --- Info Section Column Layout --- */
+.info-section { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+/* --- Category Tag Layout Shape --- */
+.info-section .tag {
+    display: inline-block;
+    align-self: flex-start;
+    background: var(--peach-light);
+    color: var(--orange);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-top: 15px;
+    border: 1px solid rgba(234, 101, 38, 0.1);
+    width: auto;
+}
+
+.detail-price-container { display: flex; flex-direction: column; gap: 2px; margin: 15px 0; }
+.detail-original-price { text-decoration: line-through; color: #999; font-size: 1.1rem; margin: 0; }
+.detail-deal-price { font-size: 2.2rem; color: var(--orange); font-weight: 800; margin: 0; }
+
+/* --- Description & WhatsApp Gap Fix --- */
+.product-description-text {
+    line-height: 1.6; 
+    color: #666; 
+    margin-top: 5px !important;
+    margin-bottom: 30px !important;
+}
+
+.branch-order-box {
+    margin-top: 0 !important;
+    background: var(--peach-light);
+    border: 1px dashed rgba(234, 101, 38, 0.3);
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.branch-title { margin: 0 0 12px 0; font-size: 0.95rem; color: var(--text-dark); font-weight: 700; }
+
+/* --- Bundle Pricing Promo Badge --- */
+.detail-bundle-tag {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: #fff9e6;
+    color: #d48806;
+    border: 1px solid #ffe58f;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 8px;
+    letter-spacing: 0.3px;
+}
+
+/* --- Horizontal Side-by-Side Button Layout --- */
+.branch-buttons-grid { 
+    display: flex; 
+    flex-direction: row; 
+    gap: 10px; 
+    width: 100%;
+}
+
+.whatsapp-branch-btn {
+    flex: 1; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    background-color: #25D366; 
+    color: white; 
+    text-decoration: none;
+    padding: 12px 10px; 
+    border-radius: 30px; 
+    font-weight: 700; 
+    font-size: 0.9rem;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+.branch-buttons-grid.single-button-grid {
+    grid-template-columns: 1fr; /* Force single column for one button */
+}
+.whatsapp-branch-btn.general-btn { background-color: #25D366; } /* Default WhatsApp green */
+.whatsapp-branch-btn:hover { background-color: #128C7E; transform: translateY(-2px); }
+
+/* --- Sale Badge & Shares Row Elements --- */
+.badge-share-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.detail-sale-badge { background: #e74c3c; color: white; padding: 6px 14px; border-radius: 30px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+.share-btn { display: inline-flex; align-items: center; gap: 8px; background: none; border: 2px solid #eee; color: #555; padding: 8px 16px; border-radius: 30px; cursor: pointer; font-weight: 700; font-size: 0.85rem; transition: all 0.2s; }
+.share-btn:hover { border-color: var(--orange); color: var(--orange); background: var(--peach-light); }
+
+/* --- Similar Products Grid Section --- */
+.similar-section { margin-top: 60px; border-top: 1px solid #eee; padding-top: 40px; }
+.similar-section h2 { font-size: 1.8rem; color: var(--text-dark); margin-bottom: 25px; font-weight: 800; }
+.similar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; } /* Adjusted gap to match product page */
+
+/* --- Specifications Card Styling --- */
+.info-card-container { margin: 40px 0; }
+.info-card-card { background: #ffffff; border: 1px solid #eef2f5; border-radius: 16px; box-shadow: var(--shadow-soft); overflow: hidden; }
+.info-card-header { background: #fdfdfd; margin: 0; padding: 18px 24px; font-size: 1.1rem; color: var(--text-dark); font-weight: 800; border-bottom: 1px solid #f0f0f0; }
+.info-card-content { padding: 24px; background: #ffffff; }
+.info-body-text { margin: 0; font-size: 0.95rem; color: #555555; line-height: 1.7; white-space: pre-line; }
+
+/* --- Search Dropdown Menu List Items Styles --- */
+.search-dropdown-wrapper {
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    width: 100%; 
+    background: white; 
+    border-radius: 30px; 
+    margin-top: 8px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    z-index: 999; 
+    display: none; 
+    max-height: 320px; 
+    overflow-y: auto; 
+    border: 1px solid #eee;
+}
+.search-item { display: flex; align-items: center; gap: 15px; padding: 12px 20px; cursor: pointer; transition: background 0.2s; border-bottom: 1px solid #f9f9f9; }
+.search-item:hover { background: var(--peach-light); }
+.search-item img { width: 45px; height: 45px; object-fit: contain; border-radius: 8px; background: #fff; border: 1px solid #eee; }
+.search-item h4 { margin: 0 0 3px 0; font-size: 0.95rem; color: var(--text-dark); font-weight: 700; }
+.search-item p { margin: 0; font-size: 0.85rem; color: var(--orange); font-weight: 700; }
+
+/* --- Responsive Layout Rules --- */
+@media (max-width: 768px) {
+    .main-content { flex-direction: column; gap: 30px; }
+    .image-gallery, .info-section { width: 100%; }
+    .main-img img { height: 320px; }
+    .similar-grid { grid-template-columns: repeat(2, 1fr); }
+    .branch-buttons-grid { flex-direction: column; }
+    
+/* --- Responsive Layout Rules --- */
+@media (max-width: 768px) {
+    .main-content { flex-direction: column; gap: 30px; }
+    .image-gallery, .info-section { width: 100%; }
+    .main-img img { height: 320px; }
+    .similar-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; } /* Adjusted gap for responsiveness */
+    .branch-buttons-grid { flex-direction: column; }
+    
+    /* Small Screen Stacked Setup for Search Bar & Button */
+    #home-search-form {
+        flex-direction: column; /* Forces button to wrap underneath the input field */
+        gap: 10px;
+        padding: 10px;
+        border-radius: 16px;
+    }
+    #home-search-input {
+        width: 100%;
+        padding: 10px 8px;
+        font-size: 1rem;
+    }
+    #home-search-form .search-btn {
+        width: 100%; /* Spans full horizontal width under search bar input */
+        padding: 12px 0;
+        font-size: 0.95rem;
+        text-align: center;
+    }
+    .search-dropdown-wrapper {
+        border-radius: 12px;
+    }
+}
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Nimanja Petshop</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles-improved.css" />
+    <link rel="stylesheet" href="contact.css" />
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="index.html">
+                <img src="images/Logo-01.png" alt="PawNinja Logo" class="logo-img">
+            </a>
+            <nav class="main-nav">
+                <a href="index.html">HOME</a>
+                <a href="product.html" >PRODUCTS</a>
+                <a href="our_store.html" >OUR STORE</a>
+                <a href="brands.html">BRANDS</a>
+                <a href="contact.html"  class="active" >CONTACT</a>
+                <a href="about_us.html">ABOUT US</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contact-layout">
+        <div class="contact-container">
+            
+            <div class="contact-info-card">
+                <h2>Get in Touch! 🐾</h2>
+                <p class="subtitle">Have questions about our pet products or branch stock availability? Drop us a message, and our team will get right back to you!</p>
+                
+                <div class="info-meta-list">
+                    <div class="info-meta-item">
+                        <span class="icon">📍</span>
+                        <div>
+                            <h4>Sibu Main Branch</h4>
+                            <p>Sibu Office, Sarawak, Malaysia</p>
+                        </div>
+                    </div>
+                    <div class="info-meta-item">
+                        <span class="icon">📞</span>
+                        <div>
+                            <h4>Call Us Directly</h4>
+                            <p>084-318868</p>
+                        </div>
+                    </div>
+                    <div class="info-meta-item">
+                        <span class="icon">⏰</span>
+                        <div>
+                            <h4>Operating Hours</h4>
+                            <p>Open daily: 9:00 AM - 10:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-card">
+                <form id="firebase-contact-form">
+                    <div class="form-group">
+                        <label for="user-name">Your Full Name</label>
+                        <input type="text" id="user-name" placeholder="e.g. John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user-email">Your Email Address</label>
+                        <input type="email" id="user-email" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="msg-subject">Subject</label>
+                        <input type="text" id="msg-subject" placeholder="What are you inquiring about?" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user-message">Your Message</label>
+                        <textarea id="user-message" rows="5" placeholder="Type your message details here..." required></textarea>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="submit-form-btn">Send Message 🚀</button>
+                    
+                    <div id="form-status" style="margin-top: 20px; font-weight: 700; display: none; padding: 12px; border-radius: 12px; text-align: center;"></div>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <div>
+                <a class="logo footer-logo" href="#">
+                    <img src="images/Logo-01.png" alt="PawNinja" style="height: 40px; margin-bottom: 10px;">
+                </a>
+                <p>A warm and playful pet shop for dogs, cats, and the people who love them.</p>
+            </div>
+            <div>
+                <h3>Shop</h3>
+                <a href="product.html">All Products</a>
+                <a href="product.html?category=Treats">Treats</a>
+                <a href="product.html?category=Food">Pet Food</a>
+            </div>
+            <div>
+                <h3>Visit Us</h3>
+                <p>Sibu Office: 084-318868</p>
+                <p>Open daily: 9:00 AM - 10:00 PM</p>
+            </div>
+        </div>
+    </footer>
+
+<div id="custom-popup-modal" class="popup-modal">
+        <div class="popup-modal-content">
+            <div class="popup-modal-icon">🐾</div>
+            <h3>Thank You!</h3>
+            <p>Your message has been sent successfully. We'll update your Google Sheet and alert your email right away!</p>
+            <button id="close-popup-btn" class="popup-modal-btn">Awesome!</button>
+        </div>
+    </div>
+
+    <script type="module" src="contact.js"></script>
+    <script type="module" src="home-search.js"></script>
+    <script src="global-sidebar.js"></script>
+    <script type="module" src="analytics.js"></script>
+
+
+</body>
+</html>

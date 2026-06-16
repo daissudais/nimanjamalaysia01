@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nimanja Petshop</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+    <link rel="stylesheet" href="styles-improved.css" />
+    <link rel="stylesheet" href="search.css" />
+    <link rel="stylesheet" href="products-improved.css" />
+    <link rel="stylesheet" href="details.css" />
+</head>
+<body>
+    <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="images\Logo-01.png" alt="PawNinja Logo" class="logo-img">
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html">HOME</a>
+        <a href="product.html" class="active" >PRODUCTS</a>
+        <a href="our_store.html">OUR STORE</a>
+        <a href="brands.html">BRANDS</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="about_us.html">ABOUT US</a>
+      </nav>
+    </div>
+  </header>
+
+    <div class="details-layout">
+        
+        <div class="filter-search details-page-wide-search">
+            <form id="home-search-form" style="width: 100%; display: flex; gap: 10px; margin: 0;">
+                <input type="text" id="home-search-input" placeholder="Search products..." autocomplete="off" />
+                <button type="submit" class="search-btn">Search</button>
+            </form>
+            <div id="search-results-dropdown" class="search-dropdown-wrapper"></div>
+        </div>
+
+        <a href="product.html" class="back-link">← Back to Catalog</a>
+        
+        <div id="product-detail-view" class="main-content"></div>
+
+        <div id="additional-info-card" class="info-card-container"></div>
+
+        <div class="similar-section">
+            <h2>Similar Products</h2>
+            <div id="similar-products-grid" class="similar-grid"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-inner">
+          <div>
+            <a class="logo footer-logo" href="#">
+              <img src="images/Logo-01.png" alt="PawNinja" style="height: 40px; margin-bottom: 10px;">
+            </a>
+            <p>A warm and playful pet shop for dogs, cats, and the people who love them.</p>
+          </div>
+          <div>
+            <h3>Shop</h3>
+            <a href="product.html">All Products</a>
+            <a href="product.html?category=Treats">Treats</a>
+            <a href="product.html?category=Food">Pet Food</a>
+          </div>
+          <div>
+            <h3>Visit Us</h3>
+            <p>Sibu Office: 084-318868</p>
+            <p>Open daily: 9:00 AM - 10:00 PM</p>
+          </div>
+        </div>
+        <div class="container footer-bottom">
+          <p>©2026 PawNinja Petshop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="home-search.js"></script>
+    <script type="module" src="details.js"></script>
+  <script src="global-sidebar.js"></script>
+  <script type="module" src="analytics.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Hot Deals - Nimanja Petshop</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles-improved.css" />
+  <link rel="stylesheet" href="products-improved.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Nunito", sans-serif;
+    }
+
+    /* =========================
+       SLIDER
+    ========================== */
+    .slider-container {
+      position: relative;
+      width: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .slider-wrapper {
+      display: flex;
+      width: 300%;
+      transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .slide {
+      width: 33.333%;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .slide img {
+      width: 100%;
+      height: clamp(350px, 55vh, 650px);
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .slider-container:hover .slide img {
+      transform: scale(1.04);
+    }
+
+    .slider-dots {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50px;
+      background: rgba(255, 186, 67, 0.5);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      width: 24px;
+      background: orangered;
+    }
+
+    /* =========================
+       FILTER SECTION
+    ========================== */
+    .deals-filter-section {
+      text-align: center;
+      margin: 30px auto;
+      max-width: 1200px;
+      padding: 0 20px;
+    }
+
+    .deals-filter-title {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .region-toggle-container {
+      margin-bottom: 25px; 
+      display: flex; 
+      justify-content: center; 
+      gap: 12px;
+    }
+
+    .deals-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .deal-tab {
+      padding: 10px 24px;
+      background: #f0f0f0;
+      border: 2px solid transparent;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      color: #555;
+    }
+
+    .deal-tab.active,
+    .deal-tab:hover {
+      background: var(--orange);
+      color: white;
+      box-shadow: 0 6px 20px rgba(232, 93, 26, 0.25);
+    }
+
+    /* =========================
+       PRODUCTS CATALOG GRID
+    ========================== */
+    .deals-main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    .catalog-status {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 15px;
+      font-weight: 600;
+      color: #666;
+    }
+
+    .no-deals-message {
+      grid-column: 1 / -1; 
+      text-align: center; 
+      font-size: 18px; 
+      color: #666; 
+      margin: 40px 0;
+    }
+
+    /* =========================
+       PROMO PRICE BOXES
+    ========================== */
+    .deal-price-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 8px;
+      margin-top: 4px;
+      width: 100%;
+    }
+
+    .sibu-box {
+      background-color: var(--peach-light, #fdf3ee);
+      border: 1px dashed rgba(234, 101, 38, 0.4);
+    }
+
+    .miri-box {
+      background-color: #fff5f5;
+      border: 1px dashed rgba(231, 76, 60, 0.4);
+    }
+
+    .branch-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .sibu-box .branch-label {
+      color: var(--orange, #ff5722);
+    }
+
+    .miri-box .branch-label {
+      color: #e74c3c;
+    }
+
+    .branch-price {
+      font-size: 1.05rem;
+      font-weight: 850;
+    }
+
+    .sibu-box .branch-price {
+      color: var(--orange, #ff5722);
+    }
+
+    .miri-box .branch-price {
+      color: #e74c3c;
+    }
+    /* =========================
+       PROMO PRICE BOXES (SOLID)
+    ========================== */
+    .deal-price-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 8px;
+      margin-top: 4px;
+      width: 100%;
+    }
+
+    .sibu-box {
+      background-color: var(--peach-light, #fdf3ee);
+      border: 1px solid rgba(234, 101, 38, 0.25); /* Changed to a clean, solid subtle line */
+    }
+
+    .miri-box {
+      background-color: #fff5f5;
+      border: 1px solid rgba(231, 76, 60, 0.25); /* Changed to a clean, solid subtle line */
+    }
+
+    .branch-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .sibu-box .branch-label {
+      color: var(--orange, #ff5722);
+    }
+
+    .miri-box .branch-label {
+      color: #e74c3c;
+    }
+
+    .branch-price {
+      font-size: 1.05rem;
+      font-weight: 850;
+    }
+
+    .sibu-box .branch-price {
+      color: var(--orange, #ff5722);
+    }
+
+    .miri-box .branch-price {
+      color: #e74c3c;
+    }
+
+    .no-deals-message {
+      grid-column: 1 / -1; 
+      text-align: center; 
+      font-size: 18px; 
+      color: #666; 
+      margin: 40px 0;
+    }
+
+    /* Dynamic Pricing Styles from script rendering */
+    .regional-sibu-deal,
+    .regional-miri-deal {
+      font-size: 1.1rem !important; 
+      font-weight: 800; 
+      margin: 0;
+    }
+    
+    .regional-sibu-deal { color: var(--orange, #ff5722); }
+    .regional-miri-deal { color: #e74c3c; }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="images/Logo-01.png" alt="PawNinja Logo" class="logo-img">
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">HOME</a>
+        <a href="product.html">PRODUCTS</a>
+        <a href="our_store.html">OUR STORE</a>
+        <a href="brands.html">BRANDS</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="about_us.html">ABOUT US</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- SLIDER -->
+    <section class="slider-container">
+      <div class="slider-wrapper" id="slider-wrapper">
+        <div class="slide">
+          <img src="images/banner01.png" alt="Deal Banner 1">
+        </div>
+        <div class="slide">
+          <img src="images/banner02.png" alt="Deal Banner 2">
+        </div>
+        <div class="slide">
+          <img src="images/banner01.png" alt="Deal Banner 3">
+        </div>
+      </div>
+
+      <!-- CENTERED DOTS -->
+      <div class="slider-dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </section>
+
+    <!-- FILTER -->
+    <section class="deals-filter-section">
+      <h2 class="deals-filter-title">Filter by Promotion Type</h2>
+      <div class="deals-tabs" id="deal-tags-container"></div>
+    </section>
+
+    <!-- PRODUCTS CATALOG -->
+    <section class="deals-main-content">
+      <div class="catalog-status">
+        <span id="page-counter-top">Page 1 of 1</span>
+      </div>
+
+      <!-- Clean framework layout link targeting products-improved.css layout structures -->
+      <div id="catalog-container" class="grid-layout"></div>
+
+      <div class="pagination" style="margin-top:40px;"></div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <a class="logo footer-logo" href="#">
+          <img src="images/Logo-01.png" alt="PawNinja" style="height:40px;margin-bottom:10px;">
+        </a>
+        <p>A warm and playful pet shop for dogs, cats, and the people who love them.</p>
+      </div>
+      <div>
+        <h3>Shop</h3>
+        <a href="product.html?category=Dog Food">Dog Food</a>
+        <a href="product.html?category=Cat Food">Cat Food</a>
+        <a href="product.html?category=Treats">Treats</a>
+        <a href="product.html?category=Accessories">Accessories</a>
+      </div>
+      <div>
+        <h3>Support</h3>
+        <a href="#">Shipping Policy</a>
+        <a href="#">Refund Policy</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div>
+        <h3>Visit Us</h3>
+        <p>Sibu Office: 084-318868</p>
+        <p>Open daily: 9:00 AM - 10:00 PM</p>
+        <p>Hotline: 0796318868</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>©2026 PawNinja Petshop. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="deals.js"></script>
+  <script src="global-sidebar.js"></script>
+  <script type="module" src="analytics.js"></script>
+</body>
+</html>

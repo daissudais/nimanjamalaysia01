@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us & Services - Nimanja Petshop</title>
+
+  <!-- Global Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Core Layout Stylesheets -->
+  <link rel="stylesheet" href="styles-improved.css" />
+  <link rel="stylesheet" href="products-improved.css" />
+
+  <style>
+    /* ==========================================================================
+       ADVANCED ABOUT & SERVICES DESIGN SYSTEM
+       ========================================================================== */
+    
+    /* Page Intro Hero */
+    .about-hero-section {
+      background: linear-gradient(135deg, #fde8d6 0%, #fff6ee 55%, var(--cream) 100%);
+      padding: 100px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-hero-section::before {
+      content: "🐾";
+      position: absolute;
+      left: 5%;
+      top: 20%;
+      font-size: 3rem;
+      opacity: 0.15;
+      animation: floatA 4s ease-in-out infinite;
+    }
+
+    .about-hero-section h1 {
+      font-family: var("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap");
+      font-size: clamp(2.8rem, 6vw, 4rem);
+      color: var(--text);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .about-hero-section h1 em {
+      font-style: italic;
+      color: var(--orange);
+    }
+
+    .about-hero-section p {
+      font-size: 1.25rem;
+      color: var(--text-soft);
+      max-width: 750px;
+      margin: 0 auto;
+      line-height: 1.8;
+      font-weight: 600;
+    }
+
+    /* Editorial Layout Split Split-Grids */
+    .about-layout-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 56px;
+      margin: 80px 0;
+      align-items: center;
+    }
+
+    /* High-Fidelity Premium Section Cards */
+    .about-card {
+      background: var(--white);
+      border: 1.5px solid rgba(36, 28, 20, 0.05);
+      border-radius: var(--radius-xl);
+      padding: 50px;
+      box-shadow: var(--shadow-soft);
+      transition: box-shadow 0.3s var(--ease);
+    }
+
+    .about-card:hover {
+      box-shadow: var(--shadow);
+    }
+
+    .about-card h2 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .about-card p {
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    /* Image Display Architecture */
+    .about-image-frame {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      height: 480px;
+      border: 10px solid var(--white);
+      transition: transform 0.4s var(--ease-bounce);
+    }
+
+    .about-image-frame:hover {
+      transform: scale(1.02) rotate(1deg);
+    }
+
+    .about-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ─── Services Showcase Grid ─────────────────── */
+    .services-bg-container {
+      background: var(--cream);
+      padding: 90px 0;
+      margin: 40px 0;
+      border-radius: var(--radius-xl);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .service-premium-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-soft);
+      border: 2px solid transparent;
+      transition: transform 0.3s var(--ease-bounce), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .service-premium-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--orange);
+      box-shadow: var(--shadow);
+    }
+
+    .service-icon-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .service-icon-box {
+      width: 64px;
+      height: 64px;
+      background: var(--peach-light);
+      border-radius: var(--radius-sm);
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      color: var(--orange);
+    }
+
+    .service-icon-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .service-premium-card p {
+      color: var(--text-soft);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      font-weight: 600;
+    }
+
+    .service-features-list {
+      list-style: none;
+      margin-top: 8px;
+    }
+
+    .service-features-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-weight: 700;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .service-features-list li::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    /* Core Promises Cards */
+    .promises-cards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 40px 0 90px;
+    }
+
+    .value-item-card {
+      background: var(--white);
+      border: 1.5px solid rgba(36, 28, 20, 0.05);
+      border-radius: var(--radius-md);
+      padding: 36px 28px;
+      text-align: center;
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+
+    .value-item-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: var(--peach);
+    }
+
+    .value-item-card .card-badge-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--peach-light);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+      margin: 0 auto 20px;
+    }
+
+    .value-item-card h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1150px) {
+      .about-layout-grid, .services-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .about-image-frame {
+        height: 360px;
+      }
+      .promises-cards-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="images/Logo-01.png" alt="Nimanja Logo" class="logo-img">
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html">HOME</a>
+        <a href="product.html" >PRODUCTS</a>
+        <a href="our_store.html" >OUR STORE</a>
+        <a href="brands.html">BRANDS</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="about_us.html"  class="active" >ABOUT US</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main>
+    
+    <!-- HERO SECTION -->
+    <section class="about-hero-section">
+      <div class="container">
+        <span class="eyebrow">Get to know us</span>
+        <h1>We are here to care for your <em>furry family</em></h1>
+        <p>Discover how Nimanja combines premium local pet supplies with professional boarding and fast home shipping networks to simplify everyday pet parenting.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      
+      <!-- SECTION CARD 1: OUR MISSION STORY -->
+      <section class="about-layout-grid">
+        <div class="about-card">
+          <h2>Our Story & Mission</h2>
+          <p>
+            Founded on a profound love for companion animals, Nimanja Petshop has evolved into a trusted regional destination for dedicated pet parents. We understand completely that pets are not just animals—they are cherished, irreplaceable parts of our homes.
+          </p>
+          <p>
+            That is why our expert curation pipelines work around the clock to secure premium, wholesome recipes, safety-tested accessories, and medical-grade care solutions. We strive to provide peace of mind to families, helping every cat and dog live a long, active, and joyful life.
+          </p>
+        </div>
+        <div class="about-image-frame">
+          <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=800&auto=format&fit=crop" alt="Pet care love">
+        </div>
+      </section>
+
+    </div>
+
+    <!-- SERVICES SHOWCASE CONTAINER SECTION -->
+    <section class="services-bg-container">
+      <div class="container">
+        
+        <div class="section-heading centered">
+          <span>Premium Services</span>
+          <h2>More Than Just a Pet Shop</h2>
+        </div>
+
+        <div class="services-grid">
+          
+          <!-- SERVICE CARD: EXCEL DELIVERY -->
+          <article class="service-premium-card">
+            <div class="service-icon-header">
+              <div class="service-icon-box">📦</div>
+              <h3>Fast Local Delivery</h3>
+            </div>
+            <p>
+              Never run out of heavy kibble bags or cat litter boxes again. Our specialized door-to-door retail fulfillment service handles all logistics so you can rest easy at home.
+            </p>
+            <ul class="service-features-list">
+              <li>Free delivery on eligible minimum purchases over RM40</li>
+              <li>Carefully handled bulk food bags and fragile items</li>
+              <li>Direct scheduled drops straight to your doorstep</li>
+            </ul>
+          </article>
+
+          <!-- SERVICE CARD: CAT BOARDINGHOTEL -->
+          <article class="service-premium-card">
+            <div class="service-icon-header">
+              <div class="service-icon-box">🐱</div>
+              <h3>Cozy Cat Boarding</h3>
+            </div>
+            <p>
+              Heading away for holidays or business travel? Treat your cat to a safe, comfortable, and low-stress luxury vacation inside our safe boarding suites.
+            </p>
+            <ul class="service-features-list">
+              <li>Climate-controlled, clean air cabins with room to stretch</li>
+              <li>Attentive interactive play sessions and brushing schedules</li>
+              <li>Regular photo updates for your complete peace of mind</li>
+            </ul>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- CORE VALUES SEGMENT -->
+      <section class="section-heading centered" style="margin-top: 80px; margin-bottom: 20px;">
+        <span>Our Commitments</span>
+        <h2>Why Local Pet Parents Choose Us</h2>
+      </section>
+
+      <section class="promises-cards-row">
+        <div class="value-item-card">
+          <div class="card-badge-icon">🛡️</div>
+          <h3>Premium Quality</h3>
+          <p>We filter ingredient lists and source authentic global labels with absolute care.</p>
+        </div>
+
+        <div class="value-item-card">
+          <div class="card-badge-icon">📍</div>
+          <h3>Sarawak Proud</h3>
+          <p>Deeply committed to serving pet parents across Sibu, Miri, and Bintulu with tailored local values.</p>
+        </div>
+
+        <div class="value-item-card">
+          <div class="card-badge-icon">💰</div>
+          <h3>Honest Pricing</h3>
+          <p>From bundle deal values to flash reductions, we ensure pet care fits your family budget comfortably.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <a class="logo footer-logo" href="#">
+          <img src="images/Logo-01.png" alt="Nimanja" style="height: 40px; margin-bottom: 10px;">
+        </a>
+        <p>A warm and playful pet shop for dogs, cats, and the people who love them.</p>
+      </div>
+
+      <div>
+        <h3>Shop</h3>
+        <a href="product.html?category=Dog Food">Dog Food</a>
+        <a href="product.html?category=Cat Food">Cat Food</a>
+        <a href="product.html?category=Treats">Treats</a>
+        <a href="product.html?category=Accessories">Accessories</a>
+      </div>
+
+      <div>
+        <h3>Support</h3>
+        <a href="#">Shipping Policy</a>
+        <a href="#">Refund Policy</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Contact Us</a>
+      </div>
+
+      <div>
+        <h3>Visit Us</h3>
+        <p>Sibu Office: 084-318868</p>
+        <p>Open daily: 9:00 AM - 10:00 PM</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>©2026 Nimanja Malaysia Petshop. All rights reserved.</p>
+    </div>
+  </footer>
+<script type="module" src="home-search.js"></script>
+  <script src="global-sidebar.js"></script>
+  <script type="module" src="analytics.js"></script>
+  
+</body>
+</html>

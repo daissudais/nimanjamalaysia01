@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Products</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-improved.css" />
+    <link rel="stylesheet" href="products-improved.css" />
+    <link rel="stylesheet" href="search.css" />
+    <style>
+        .brand-header {
+            background: linear-gradient(135deg, #fde8d6 0%, #fff6ee 55%, var(--cream) 100%);
+            padding: 80px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+            border-bottom: 1px solid rgba(232, 93, 26, 0.1);
+        }
+        .brand-header h1 { 
+            font-size: clamp(2.5rem, 5vw, 4rem); 
+            color: var(--text); 
+            font-weight: 900;
+            letter-spacing: -0.03em;
+        }
+        .brand-header p { 
+            color: var(--text-soft); 
+            margin-top: 10px; 
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .brand-catalog-section {
+            padding-bottom: 80px;
+        }
+
+        /* Horizontal Brand Navigation */
+        .brand-nav-section {
+            background: var(--white);
+            padding: 35px 0 20px; /* Increased top and bottom padding to give hover effects room */
+            border-bottom: 1px solid var(--border);
+        }
+        .brand-nav-grid {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding: 10px 5px 20px; /* Added internal top and bottom padding so cards can expand safely */
+            margin-top: -10px;      /* Pulls the layout back up to keep structural alignment clean */
+            scrollbar-width: none; /* Firefox */
+            -webkit-overflow-scrolling: touch;
+        }
+        .brand-nav-grid::-webkit-scrollbar { display: none; }
+        
+        .brand-nav-grid .brand-card {
+            flex: 0 0 140px;
+            height: 80px;
+            border: 1.5px solid var(--border);
+            background: var(--white);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s var(--ease);
+        }
+
+        /* Safe scaling effect on hover without clipping borders */
+        .brand-nav-grid .brand-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--orange);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .brand-nav-grid .brand-card.active {
+            border-color: var(--orange);
+            background: var(--orange-pale);
+            box-shadow: var(--shadow-xs);
+        }
+        .brand-nav-grid .brand-card img {
+            max-height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+        .brand-nav-grid .brand-card span {
+            font-weight: 800;
+            font-size: 0.9rem;
+            color: var(--text-soft);
+            text-align: center;
+        }
+        
+        /* Main Catalog Brand Cards (When no specific brand is selected) */
+        #brand-catalog-container.grid-layout .brand-card {
+            height: 200px;
+            flex: none;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            transition: all 0.3s var(--ease);
+            box-shadow: var(--shadow-soft);
+        }
+        #brand-catalog-container.grid-layout .brand-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--orange);
+            box-shadow: var(--shadow);
+        }
+        #brand-catalog-container.grid-layout .brand-card img {
+            max-height: 100px;
+            width: auto;
+        }
+        #brand-catalog-container.grid-layout .brand-card span {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            display: block !important; /* Force display if logo fails */
+        }
+
+        /* Navigation Arrows */
+        .nav-arrow {
+            position: absolute;
+            top: 40px; /* Center relative to the 80px brand cards */
+            transform: translateY(-50%);
+            width: 34px;
+            height: 34px;
+            background: var(--white);
+            border: 1.5px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: var(--shadow-xs);
+            transition: all 0.2s var(--ease);
+            color: var(--text-soft);
+            font-size: 14px;
+        }
+        .nav-arrow:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
+        .nav-arrow.left { left: -12px; }
+        .nav-arrow.right { right: -12px; }
+        @media (max-width: 780px) { .nav-arrow { display: none; } } /* Touch swipe is preferred on mobile */
+
+        /* 📱 RESPONSIVE MOBILE FIXES */
+        @media (max-width: 600px) {
+            .brand-header {
+                padding: 40px 15px;
+                margin-bottom: 25px;
+            }
+            .top-controls-flex {
+                padding: 0 15px;
+            }
+            
+      
+            /* Clean up scaling parameters of directory cards on small screens */
+            #brand-catalog-container.grid-layout .brand-card {
+                height: 140px;
+                padding: 15px;
+            }
+            #brand-catalog-container.grid-layout .brand-card img {
+                max-height: 60px;
+            }
+            #brand-catalog-container.grid-layout .brand-card span {
+                margin-top: 8px;
+                font-size: 0.95rem;
+            }
+            
+            /* Force footer items to stack nicely instead of getting squished */
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .footer-social-list {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="index.html">
+                <img src="images/Logo-01.png" alt="Nimanja Logo" class="logo-img">
+            </a>
+            <nav class="main-nav">
+                <a href="index.html">HOME</a>
+                <a href="product.html">PRODUCTS</a>
+                <a href="our_store.html">OUR STORE</a>
+                <a href="brands.html" class="active">BRANDS</a>
+                <a href="contact.html">CONTACT</a>
+                <a href="about_us.html">ABOUT US</a>
+            </nav>
+        </div>
+    </header>
+
+       <div class="brand-header">
+        <div class="container">
+            <span class="eyebrow" style="justify-content: center;">Curated Selection</span>
+            <h1 id="brand-title">All Brands</h1>
+            <p id="brand-description">Premium quality essentials for your furry family.</p>
+        </div>
+    </div>
+
+       <section class="search-bar-top">
+        <div class="container top-controls-flex">
+            <form class="filter-search" id="brand-search-form">
+                <input type="text" id="brand-search-input" placeholder="Search by name or category..." autocomplete="off" />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="brand-nav-section">
+        <div class="container" style="position: relative;">
+            <button id="brand-prev" class="nav-arrow left" aria-label="Previous">❮</button>
+            <div id="brand-nav-slider" class="brand-nav-grid">
+                <!-- Brands injected by brands.js -->
+            </div>
+            <button id="brand-next" class="nav-arrow right" aria-label="Next">❯</button>
+        </div>
+    </section>
+
+
+    <section class="brand-catalog-section">
+        <div class="container">
+            <div id="brand-catalog-container" class="grid-layout">
+                <!-- Products injected by brands.js -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-inner">
+            <div>
+                <a class="logo footer-logo" href="index.html">
+                    <img src="images/Logo-01.png" alt="Nimanja" style="height: 40px; margin-bottom: 10px;">
+                </a>
+                <p>A warm and playful pet shop for dogs, cats, and the people who love them.</p>
+            </div>
+            <div>
+                <h3>Shop</h3>
+                <a href="product.html">All Products</a>
+                <a href="product.html?category=Treats">Treats</a>
+                <a href="product.html?category=Food">Pet Food</a>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <div class="footer-social-list">
+                    <a href="https://www.facebook.com/nimanjamalaysia/" class="social-link-item">
+                        <img src="images/social meadia icon/fb.png" alt="Facebook" class="social-img-icon">
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com/nimanjamalaysia/" class="social-link-item">
+                        <img src="images/social meadia icon/ig.png" alt="Instagram" class="social-img-icon">
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>©2026 Nimanja Malaysia Petshop</p>
+        </div>
+    </footer>
+
+    <script type="module" src="brands.js"></script>
+    <script src="global-sidebar.js"></script>
+    <script type="module" src="analytics.js"></script>
+</body>
+</html>

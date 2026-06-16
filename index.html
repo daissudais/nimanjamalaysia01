@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nimanja Petshop</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles-improved.css" />
+  <link rel="stylesheet" href="search.css" />
+  
+  
+</head>
+
+<body>
+ <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="index.html">
+                <img src="images/Logo-01.png" alt="Nimanja Logo" class="logo-img">
+            </a>
+
+            <nav class="main-nav">
+                <a href="index.html" class="active">HOME</a>
+                <a href="product.html">PRODUCTS</a>
+                <a href="our_store.html">OUR STORE</a>
+                <a href="brands.html">BRANDS</a>
+                <a href="contact.html">CONTACT</a>
+                <a href="about_us.html">ABOUT US</a>
+            </nav>
+        </div>
+    </header>
+
+  <main>
+
+ <div class="marquee">
+  <div class="marquee-track">
+    <span>🦴 10% off your first order! 🐾 Free shipping on orders over RM40</span>
+    <span>🦴 10% off your first order! 🐾 Free shipping on orders over RM40</span>
+    <!-- Duplicated items for a seamless loop transition -->
+    <span>🦴 10% off your first order! 🐾 Free shipping on orders over RM40</span>
+    <span>🦴 10% off your first order! 🐾 Free shipping on orders over RM40</span>
+  </div>
+</div>
+
+
+    <section class="hero-section">
+      <div class="container hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Fresh food. Happy pets.</span>
+          <h1>Everything your pet needs, delivered with love.</h1>
+          <p>
+            Discover nutritious food, playful toys, cozy beds, and daily care
+            essentials for dogs and cats. Curated for healthier, happier pets.
+          </p>
+          <div class="hero-actions">
+            <a href="product.html" class="btn primary">Shop Products</a>
+            <a href="#" class="btn secondary">Explore Brands</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card hero-card-large">
+            <img src="https://img.magnific.com/premium-photo/picture-dog-dog-with-parrot-back_979014-33109.jpg?semt=ais_hybrid&w=740&q=80" alt="Pets">
+          </div>
+          <div class="floating-note note-one"><strong>30%</strong> off treats</div>
+          <div class="floating-note note-two">Free shipping <strong>over RM40</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="search-section">
+      <div class="container" style="position: relative;">
+        <form class="search-panel" id="home-search-form">
+          <input type="text" id="home-search-input" placeholder="Search food, toys, treats, beds..." autocomplete="off" />
+          <button type="submit">Search</button>
+        </form>
+        <div id="search-results-dropdown" class="search-results-dropdown"></div>
+      </div>
+    </section>
+
+    <section class="category-section">
+      <div class="container">
+        <div class="section-heading centered">
+          <span>Shop by pet</span>
+          <h2>Find the right products faster</h2>
+        </div>
+        <div class="pet-category-grid">
+          <article class="pet-category-card dog-card" onclick="window.location.href='product.html?category=Dog Food'">
+            <div>
+              <span class="card-label">For Dogs</span>
+              <h3>Food, treats, toys, and comfort essentials.</h3>
+              <a href="product.html?category=Dog Food">Shop dog products →</a>
+            </div>
+            <img src="https://www.petexpress.com.ph/cdn/shop/articles/golden_retriever_5f91f61d-2e1b-4494-a8f2-0249e1888bbc_1200x.jpg?v=1772696052" alt="Dogs">
+          </article>
+
+          <article class="pet-category-card cat-card" onclick="window.location.href='product.html?category=Cat Food'">
+            <div>
+              <span class="card-label">For Cats</span>
+              <h3>Healthy meals, litter, scratchers, and cozy beds.</h3>
+              <a href="product.html?category=Cat Food">Shop cat products →</a>
+            </div>
+            <img src="images\catpage.jpg" alt="Cats">
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-section">
+      <div class="container">
+        <div class="section-heading">
+          <span>Popular this week</span>
+          <h2>Fresh picks for furry friends</h2>
+        </div>
+        <div class="featured-grid">
+          <article class="featured-card tall-card continuous-slider-container" onclick="window.location.href='deals_products.html?promo='">
+            
+            <div class="slider-wrapper" id="home-slider-wrapper">
+              <div class="slide">
+                <img src="images/GAWAI.jpg" alt="Gawai Deals">
+              </div>
+              <div class="slide">
+                <img src="images/deals2.png" alt="Exclusive Pet Deals" onerror="this.src='https://via.placeholder.com/600x800?text=Special+Offers'">
+              </div>
+              <div class="slide">
+                <img src="images\deals03.png" alt="Premium Food Discounts" onerror="this.src='https://via.placeholder.com/600x800?text=Brand+Discounts'">
+              </div>
+            </div>
+
+            <div class="slider-overlay-shield"></div>
+
+            <div class="featured-content">
+              <span>Save Up</span>
+              <h3>Gawai Deals & More!</h3>
+              <span class="slider-view-text">View Products →</span>
+            </div>
+
+            <div class="slider-dots" id="home-slider-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          </article>
+
+          <article class="featured-card cream-card">
+            <span class="tag">Best Value</span>
+            <h3>Save more on large food bags</h3>
+            <p>Perfect for multi-pet homes and monthly restocks.</p>
+            <a href="product.html?sort=Bulk+Deals+Only">Shop bulk deals →</a>
+          </article>
+
+          <article class="featured-card orange-card">
+            <span class="tag light">New Arrivals</span>
+            <h3>Cozy beds for peaceful naps</h3>
+            <p>Soft, washable, and made for everyday comfort.</p>
+            <a href="deals_products.html?promo=NEW ARRIVAL">New Arrivals →</a>
+          </article>
+
+          <article class="featured-card image-side-card">
+            <div>
+              <span>Dental Care</span>
+              <h3>Fresh breath and healthier teeth</h3>
+              <a href="#">Shop dental kits →</a>
+            </div>
+            <img 
+              src="https://veterinaryclinicberlin.com/uploads/SiteAssets/294/images/services/Untitled%20design%20(17).png" 
+              alt="Dog dental care"
+            >
+
+        </div>
+      </div>
+    </section>
+
+
+<section class="care-section">
+      <div class="container care-panel">
+        <div class="care-copy">
+          <span class="eyebrow">Pet care made simple</span>
+          <h2>Healthy routines start with the right essentials.</h2>
+          <p>
+            From daily meals to grooming tools and calming beds, our collections
+            help you build a better routine for your pet at home.
+          </p>
+          <a href="#" class="btn primary">Learn More</a>
+        </div>
+        <div class="care-benefits">
+          <article>
+            <span>💬</span>
+            <h3>Friendly Support</h3>
+            <p>Helpful guidance for choosing the right products.</p>
+          </article>
+          <article>
+            <span>📦</span>
+            <h3>Fast Delivery</h3>
+            <p>Essentials shipped quickly to your doorstep.</p>
+          </article>
+          <article>
+            <span>⭐</span>
+            <h3>Quality Picks</h3>
+            <p>Products selected with comfort and wellness in mind.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="brand-section">
+      <div class="container">
+        <div class="section-heading centered">
+          <span>Trusted names</span>
+          <h2>Popular pet brands</h2>
+        </div>
+    
+        <a href="brands.html">View All Brands →</a>
+    <div class="brand-grid">
+        <div class="brand-card" onclick="window.location.href='brands.html?brand=Catchy'">
+            <img src="images\brands\Kaniva.png" alt="Kaniva Logo">
+        </div>
+
+        <div class="brand-card" onclick="window.location.href='brands.html?brand=CIAO'">
+            <img src="images\brands\Ciao.jpeg" alt="CIAO Logo">
+        </div>
+
+        <div class="brand-card" onclick="window.location.href='brands.html?brand=DoggyMan'">
+            <img src="images/brands/doggyman.png" alt="DoggyMan Logo">
+        </div>
+
+        <div class="brand-card" onclick="window.location.href='brands.html?brand=Gemon'">
+            <img src="images/brands/gemon.png" alt="Gemon Logo">
+        </div>
+
+        <div class="brand-card" onclick="window.location.href='brands.html?brand=Keos'">
+            <img src="images\brands\Keos.png" alt="Keos Logo">
+        </div>
+
+        <div class="brand-card" onclick="window.location.href='brands.html?brand=Royal Canin'">
+            <img src="images\brands\RoyalCanin.png" alt="Royal Canin Logo">
+        </div>
+
+        <div class="brand-card" onclick="window.location.href='brands.html?brand=meO'">
+            <img src="images/brands/meo.png" alt="meO Logo">
+        </div>
+
+        <div class="brand-card" onclick="window.location.href='brands.html?brand=MR.VET'">
+            <img src="images/brands/mrvet.png" alt="MR.VET Logo">
+        </div>
+    </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <a class="logo footer-logo" href="#">
+          <img src="images/Logo-01.png" alt="Nimanja" style="height: 40px; margin-bottom: 10px;">
+        </a>
+        <p>A warm and playful pet shop for dogs, cats, and the people who love them.</p>
+      </div>
+      <div>
+        <h3>Shop</h3>
+        <a href="product.html">All Products</a>
+        <a href="product.html?category=Treats">Treats</a>
+        <a href="product.html?category=Food">Pet Food</a>
+      </div>
+      <div>
+        <h3>Visit Us</h3>
+        <a href="our_store.html">Nimanja Stores</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      
+      <!-- New Social Media Column Stack -->
+      <div>
+        <h3>Follow our social media</h3>
+        <div class="footer-social-list">
+          <a href="https://www.facebook.com/nimanjamalaysia/?locale=ms_MY" class="social-link-item">
+            <img src="images\social meadia icon\fb.png" alt="Facebook" class="social-img-icon">
+            <span>Facebook</span>
+          </a>
+          <a href="https://www.instagram.com/nimanjamalaysia/?hl=en" class="social-link-item">
+            <img src="images\social meadia icon\ig.png" alt="Instagram" class="social-img-icon">
+            <span>Instagram</span>
+          </a>
+          <a href="#" class="social-link-item">
+            <img src="images\social meadia icon\tt.png" alt="TikTok" class="social-img-icon">
+            <span>TikTok</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <p>©2026 Nimanja Malaysia Petshop</p>
+    </div>
+  </footer>
+
+  <script type="module" src="home-search.js"></script>
+  <script src="global-sidebar.js"></script>
+  <script type="module" src="analytics.js"></script>
+
+  
+
+
+  
+  <script>
+    // --- Automatic Slider Logic for Home Page Banner ---
+    let currentHomeSlide = 0;
+    const totalHomeSlides = 3;
+
+    function autoPlayHomeSlides() {
+        const wrapper = document.getElementById('home-slider-wrapper');
+        const dots = document.querySelectorAll('#home-slider-dots .dot');
+        if (!wrapper) return;
+        
+        currentHomeSlide++;
+        if (currentHomeSlide >= totalHomeSlides) {
+            currentHomeSlide = 0;
+        }
+        
+        // Moves the inner track horizontally by 33.333% segments
+        wrapper.style.transform = `translateX(-${currentHomeSlide * 33.333}%)`;
+        
+        // Update indicator highlights classes
+        dots.forEach((dot, index) => {
+            if (index === currentHomeSlide) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+
+    // Triggers rotation sequence automatically every 3000ms
+    setInterval(autoPlayHomeSlides, 3000);
+  </script>
+
+  
+
+</body>
+</html>

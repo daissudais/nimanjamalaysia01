@@ -1,0 +1,189 @@
+/* --- Root Variables (Ensuring consistency) --- */
+:root {
+    --orange: #ea6526;
+    --peach-light: #fff5f0;
+    --white: #ffffff;
+    --radius-lg: 30px;
+    --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* --- Global Section Control --- */
+.store-page {
+    padding-bottom: 5vw; /* Flexible padding based on width */
+    background-color: #fcfcfc;
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* --- Hero Section --- */
+.store-hero {
+    background-color: var(--peach-light);
+    padding: clamp(40px, 8vh, 80px) 20px; /* Responsive padding */
+    text-align: center;
+    margin-bottom: clamp(20px, 5vh, 40px);
+}
+
+.store-hero h1 {
+    /* clamp(min, preferred, max) makes text resize smoothly */
+    font-size: clamp(2rem, 5vw, 3rem); 
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+
+/* --- Flexible Store Grid --- */
+.store-grid {
+    display: grid;
+    /* Uses fractional units for flexibility */
+    grid-template-columns: 1fr 1.5fr; 
+    gap: clamp(20px, 4vw, 40px);
+    align-items: stretch;
+    margin-bottom: 60px;
+}
+
+/* --- Info Card --- */
+.store-info-card {
+    background: var(--white);
+    padding: clamp(20px, 4vw, 40px);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.branch-title {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: #1a1a1a;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--orange);
+    display: inline-block;
+    font-weight: 800;
+}
+
+.info-group {
+    margin-bottom: clamp(15px, 3vh, 30px);
+}
+
+.info-group h3 {
+    color: var(--orange);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+}
+
+.info-group p, .hours-list li {
+    color: #555;
+    line-height: 1.6;
+    font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+}
+
+.hours-list span {
+    font-weight: 700;
+    color: #333;
+    min-width: 100px; /* Use min-width for flexibility */
+    display: inline-block;
+}
+
+/* --- Flexible Map Container --- */
+.map-container {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    min-height: 400px;
+    aspect-ratio: 16 / 9; /* Maintains shape on different screens */
+    display: flex;
+}
+
+.map-container iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+}
+
+/* --- Buttons --- */
+.store-wa-btn {
+    display: inline-block;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 15px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.store-wa-btn:hover {
+    background: #128C7E;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+/* --- Tablet & Small Desktop Breakpoint --- */
+@media (max-width: 1100px) {
+    .store-grid {
+        grid-template-columns: 1.2fr 1fr; /* Adjust ratio for smaller laptops */
+        gap: 20px;
+    }
+}
+
+/* --- Mobile & Tablet Vertical Breakpoint --- */
+@media (max-width: 992px) {
+    .store-grid {
+        grid-template-columns: 1fr; /* Stack elements vertically */
+    }
+    
+    .store-info-card {
+        order: 1; /* Text first */
+    }
+    
+    .map-container {
+        order: 2; /* Map second */
+        min-height: 350px;
+        aspect-ratio: 4 / 3;
+    }
+
+    .branch-title {
+        display: block;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .info-group {
+        text-align: center;
+    }
+    
+    .info-group h3 {
+        justify-content: center;
+    }
+
+    .store-wa-btn {
+        display: block;
+        margin: 15px auto 0;
+        text-align: center;
+    }
+}
+
+/* --- Very Small Phones --- */
+@media (max-width: 480px) {
+    .store-hero {
+        padding: 40px 15px;
+    }
+    
+    .store-info-card {
+        padding: 25px 20px;
+        border-radius: 20px;
+    }
+
+    .map-container {
+        border-radius: 20px;
+        min-height: 300px;
+    }
+}
